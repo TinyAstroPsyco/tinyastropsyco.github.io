@@ -1,90 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome to My Site</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-line-height: 1.6;
-background: #f4f4f4;
-color: #333;
-}
-header {
-background: #333;
-color: #fff;
-padding: 20px 0;
-text-align: center;
-}
-header h1 {
-margin: 0;
-}
-nav {
-margin: 10px 0;
-}
-nav a {
-color: #fff;
-margin: 0 15px;
-text-decoration: none;
-font-weight: bold;
-}
-nav a:hover {
-text-decoration: underline;
-}
-.container {
-width: 80%;
-margin: auto;
-overflow: hidden;
-padding: 20px;
-background: #fff;
-margin-top: 20px;
-border-radius: 5px;
-}
-footer {
-text-align: center;
-padding: 10px;
-background: #333;
-color: #fff;
-margin-top: 20px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyAstroPsyco — Projects & Portfolio</title>
+  <meta name="description" content="TinyAstroPsyco — projects, languages used, and contact info." />
+  <style>
+    :root {
+      --bg: #0f1220;
+      --panel: #171a2b;
+      --ink: #e6e8ff;
+      --muted: #a7abcf;
+      --accent: #7c8cff;
+      --accent-2: #48d3ff;
+      --card: #1e2238;
+      --ring: rgba(124,140,255,.35);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(124,140,255,.15), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(72,211,255,.12), transparent 55%),
+                  var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header.hero {
+      text-align: center;
+      padding: 72px 24px 40px;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--ring);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+    h1 { font-size: clamp(28px, 4vw, 44px); margin: 18px 0 8px; letter-spacing: .3px; }
+    .sub {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b0d18;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(124,140,255,.35);
+    }
+    /* Section */
+    section { margin: 42px 0; }
+    .panel {
+      background: color-mix(in oklab, var(--panel), black 6%);
+      border: 1px solid rgba(124,140,255,.15);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; letter-spacing: .2px; }
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      background: var(--card);
+      border: 1px solid rgba(124,140,255,.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    /* Projects grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+    .card {
+      grid-column: span 6;
+      background: var(--card);
+      border: 1px solid rgba(124,140,255,.18);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .thumb {
+      aspect-ratio: 16/9;
+      background: #0b0d18;
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(124,140,255,.15);
+    }
+    .card-body { padding: 16px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .spacer { flex: 1; }
+    .actions {
+      display: flex;
+      gap: 10px;
+      padding: 14px 16px 16px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: 1px solid rgba(124,140,255,.25);
+      color: var(--ink);
+      background: transparent;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b0d18;
+      border: none;
+    }
+    footer {
+      margin: 44px 0 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    /* Responsive */
+    @media (max-width: 900px) { .card { grid-column: span 12; } }
+  </style>
 </head>
 <body>
-<header>
-<h1>🌌 My Website</h1>
-<nav>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <span class="kicker">$&gt; Hello, I’m TinyAstroPsyco</span>
+      <h1>Projects I’ve built for fun, school, and work</h1>
+      <p class="sub">A lightweight showcase of things I’m tinkering with. Scroll for languages I’ve used and a selection of projects with brief notes and links.</p>
+      <a class="cta" href="#projects">Take a look!</a>
+    </header>
 
-<div class="container" id="about">
-<h2>About Me</h2>
-<p>Welcome to my GitHub Pages site! 🚀  
-I’m experimenting with HTML, CSS, and GitHub Pages hosting.</p>
-</div>
+    <!-- LANGUAGES -->
+    <section id="languages" class="panel">
+      <h2>Languages I’ve used thus far</h2>
+      <p class="sub">C, Python, a bit of C++, and lately exploring C# and automation scripting.</p>
+      <div class="chips">
+        <span class="chip">C</span>
+        <span class="chip">C++</span>
+        <span class="chip">C#</span>
+        <span class="chip">Python</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">HTML5 + CSS3</span>
+        <span class="chip">Git/GitHub</span>
+        <span class="chip">OpenCV</span>
+        <span class="chip">MediaPipe</span>
+      </div>
+    </section>
 
-<div class="container" id="projects">
-<h2>Projects</h2>
-<ul>
-<li><strong>Project 1:</strong> My first GitHub Pages site</li>
-<li><strong>Project 2:</strong> Coming soon…</li>
-</ul>
-</div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="card">
+          <img class="thumb" src="images/project-cnn.png" alt="CNN speech recognition project screenshot" />
+          <div class="card-body">
+            <h3>Convolutional Neural Net for Speech Recognition</h3>
+            <div class="meta">Tech: C, MATLAB</div>
+            <p>Built a small CNN to classify spoken commands; focused on data prep and validation workflow.</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">More</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
 
-<div class="container" id="contact">
-<h2>Contact</h2>
-    <p>Email : maddineni.po@northeastern.edu</p>
-<p>You can reach me via my GitHub profile:  
-<a href="https://github.com/TinyAstroPsyco?tab=repositories" target="_blank">GitHub Profile</a></p>
-</div>
+        <!-- Project 2 -->
+        <article class="card">
+          <img class="thumb" src="images/project-ga.png" alt="Genetic algorithms project screenshot" />
+          <div class="card-body">
+            <h3>BioComputation: Genetic Algorithms</h3>
+            <div class="meta">Tech: C, Python</div>
+            <p>Experimented with selection, crossover, and mutation strategies on benchmark functions.</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">More</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
 
-<footer>
-<p>&copy; 2025 My Website | Built with ❤️ and GitHub Pages</p>
-</footer>
+        <!-- Project 3 -->
+        <article class="card">
+          <img class="thumb" src="images/project-dlo.png" alt="Process monitoring for deformable linear objects" />
+          <div class="card-body">
+            <h3>AI Process Monitoring for Deformable Linear Objects</h3>
+            <div class="meta">Tech: Python, MediaPipe, OpenCV</div>
+            <p>Vision-based monitoring prototype; tracked cable/tube compliance and detected anomalies.</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">More</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card">
+          <img class="thumb" src="images/project-imagetool.png" alt="Image/GIF to bitmap converter tool" />
+          <div class="card-body">
+            <h3>ImageTool — Image & GIF to Bitmap Converter</h3>
+            <div class="meta">Tech: Python, Selenium, Tkinter</div>
+            <p>Utility to clean, dither, and convert assets into precise bitmaps; used automation for batches.</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">More</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="card">
+          <img class="thumb" src="images/project-game.png" alt="Cross-platform mobile game exported to iOS and Android" />
+          <div class="card-body">
+            <h3>Cross-Platform Mobile Game</h3>
+            <div class="meta">Tech: JavaScript, Xcode, Git</div>
+            <p>Built in GameMaker; exported to Xcode for iOS/Android with custom UI assets.</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn primary" href="#" target="_blank" rel="noopener">More</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel">
+      <h2>Contact Details</h2>
+      <div class="contact-links">
+        <a href="mailto:maddineni.po@northeastern.edu">Send me an Email</a>
+        <a href="https://github.com/TinyAstroPsyco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://tinyastropsyco.github.io/" target="_blank" rel="noopener">Website</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© TinyAstroPsyco • built with HTML5 + CSS3 • 2025</div>
+    </footer>
+  </div>
 </body>
 </html>
