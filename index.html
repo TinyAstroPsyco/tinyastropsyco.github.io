@@ -240,12 +240,18 @@
           <p style="margin:0 0 20px;font-size:15px;color:var(--muted);line-height:1.4;">Master's candidate in Robotics at Northeastern University 👋</p>
           
           <!-- Contact Links -->
-          <div style="display:flex;gap:12px;justify-content:center;align-items:center;">
-            <a href="https://www.linkedin.com/in/poojit-maddineni/" target="_blank" rel="noopener" 
+          <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;">
+            <a href="www.linkedin.com/in/poojitmaddineni" target="_blank" rel="noopener" 
                style="color:var(--accent-2);font-size:15px;font-weight:500;">LinkedIn</a>
             <span style="color:var(--muted);">•</span>
-            <a href="mailto:maddineni.po@northeastern.edu" 
-               style="color:var(--accent-2);font-size:15px;font-weight:500;">Email</a>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <a href="mailto:maddineni.po@northeastern.edu" 
+                 style="color:var(--accent-2);font-size:15px;font-weight:500;">Email</a>
+              <button onclick="navigator.clipboard.writeText('maddineni.po@northeastern.edu').then(() => {this.textContent='✓';setTimeout(() => this.textContent='📋', 2000)})" 
+                      style="background:rgba(124,140,255,.12);border:none;color:var(--muted);padding:4px 8px;border-radius:6px;cursor:pointer;font-size:14px;transition:all 0.2s;"
+                      onmouseover="this.style.background='rgba(124,140,255,.25)'"
+                      onmouseout="this.style.background='rgba(124,140,255,.12)'">📋</button>
+            </div>
             <span style="color:var(--muted);">•</span>
             <a href="https://github.com/TinyAstroPsyco" target="_blank" rel="noopener" 
                style="color:var(--accent-2);font-size:15px;font-weight:500;">GitHub</a>
