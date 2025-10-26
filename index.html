@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TinyAstroPsyco — Projects & Portfolio</title>
-  <meta name="description" content="TinyAstroPsyco — projects, languages used, and contact info." />
+  <meta name="description" content="TinyAstroPsyco — projects, experience, skills, and contact info." />
   <style>
     :root {
       --bg: #0f1220;
@@ -30,11 +30,15 @@
     }
     a { color: var(--accent-2); text-decoration: none; }
     a:hover { text-decoration: underline; }
+
     .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    /* HERO */
     header.hero {
       text-align: center;
       padding: 72px 24px 40px;
     }
+
     .kicker {
       display: inline-block;
       padding: 6px 12px;
@@ -44,6 +48,7 @@
       font-size: 14px;
       backdrop-filter: blur(4px);
     }
+
     h1 { font-size: clamp(28px, 4vw, 44px); margin: 18px 0 8px; letter-spacing: .3px; }
     .sub {
       color: var(--muted);
@@ -60,15 +65,31 @@
       border-radius: 10px;
       box-shadow: 0 6px 20px rgba(124,140,255,.35);
     }
-    /* Section */
+
+    /* Section container */
     section { margin: 42px 0; }
+
     .panel {
       background: color-mix(in oklab, var(--panel), black 6%);
       border: 1px solid rgba(124,140,255,.15);
       border-radius: var(--radius);
       padding: 20px;
     }
-    h2 { margin: 0 0 12px; font-size: 22px; letter-spacing: .2px; }
+
+    h2 { 
+      margin: 0 0 12px; 
+      font-size: 22px; 
+      letter-spacing: .2px; 
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    h2 span.subtle-label {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
     /* Chips */
     .chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip {
@@ -79,12 +100,15 @@
       color: var(--muted);
       font-size: 14px;
     }
-    /* Projects grid */
+
+    /* Grid layouts */
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 18px;
     }
+
+    /* Card */
     .card {
       grid-column: span 6;
       background: var(--card);
@@ -95,23 +119,46 @@
       flex-direction: column;
       min-height: 100%;
     }
+
+    /* For "experience" cards we may not always have a big image.
+       We'll support both with and without .thumb */
     .thumb {
-      /* aspect-ratio: 16/9; */
       background: #0b0d18;
       display: block;
       width: 100%;
       object-fit: cover;
       border-bottom: 2px solid rgba(124,140,255,.15);
+      /* You can uncomment if you want fixed aspect crop
+      aspect-ratio: 16/9;
+      */
     }
+
     .card-body { padding: 16px; }
     .card h3 { margin: 0 0 6px; font-size: 18px; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; line-height:1.4; }
+
+    /* small bullet list in cards */
+    .card-body ul {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .card-body li {
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
     .spacer { flex: 1; }
+
     .actions {
       display: flex;
       gap: 10px;
       padding: 14px 16px 16px;
+      flex-wrap: wrap;
     }
+
     .btn {
       display: inline-block;
       padding: 10px 14px;
@@ -122,61 +169,124 @@
       background: transparent;
       text-align: center;
       flex: 0 0 auto;
+      font-size: 14px;
+      line-height: 1.2;
     }
+
     .btn.primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #0b0d18;
       border: none;
     }
+
     footer {
       margin: 44px 0 24px;
       text-align: center;
       color: var(--muted);
       font-size: 14px;
     }
-    .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .contact-links { 
+      display: flex; 
+      gap: 14px; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
+
     /* Responsive */
-    @media (max-width: 900px) { .card { grid-column: span 12; } }
+    @media (max-width: 900px) { 
+      .card { grid-column: span 12; } 
+
+      header.hero > div {
+        grid-template-columns: 1fr !important;
+        text-align:center;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <!-- HERO -->
-   <header class="hero" style="padding:60px 24px;">
-  <div style="display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start;max-width:1100px;margin:0 auto;">
-    
-    <!-- LEFT: Profile + bio -->
-    <div style="text-align:center;">
-      <img src="Assets/Profile picture.jpg" alt="Profile photo" 
-           style="width:200px;height:200px;object-fit:cover;border-radius:50%;border:4px solid var(--accent);margin-bottom:20px;">
-      <h4 style="margin:0;">Hi, I’m Poojit Maddineni, Master’s candidate in Robotics at Northeastern University. 👋</h4>
-      <p style="color:var(--muted);margin-top:12px;">
-        Builder • Tinkerer • Learning in public.<br>
-        I love exploring code, shipping small experiments, and
-        diving into AI, automation, and creative projects 🚀
-      </p>
-    </div>
+    <header class="hero" style="padding:60px 24px;">
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start;max-width:1100px;margin:0 auto;">
+        
+        <!-- LEFT: Profile + bio -->
+        <div style="text-align:center;">
+          <img src="Assets/Profile picture.jpg" alt="Profile photo" 
+              style="width:200px;height:200px;object-fit:cover;border-radius:50%;border:4px solid var(--accent);margin-bottom:20px;">
+          <h4 style="margin:0;">Hi, I’m Poojit Maddineni, Master’s candidate in Robotics at Northeastern University. 👋</h4>
+          <p style="color:var(--muted);margin-top:12px;">
+            Builder • Tinkerer • Learning in public.<br>
+            I love exploring code, shipping small experiments, and
+            diving into AI, automation, and creative projects 🚀
+          </p>
+        </div>
 
-    <!-- RIGHT: Skills -->
-    <div class="panel" style="text-align:left;">
-      <h2>🧰 Skills & Tech Stack</h2>
-      <div class="chips" style="margin-top:14px;">
-        <span class="chip">C</span>
-        <span class="chip">C++</span>
-        <span class="chip">C#</span>
-        <span class="chip">Python</span>
-        <span class="chip">MATLAB</span>
-        <span class="chip">JavaScript</span>
-        <span class="chip">HTML + CSS</span>
-        <span class="chip">Git/GitHub</span>
-        <span class="chip">OpenCV</span>
-        <span class="chip">MediaPipe</span>
+        <!-- RIGHT: Skills -->
+        <div class="panel" style="text-align:left;">
+          <h2>🧰 Skills & Tech Stack</h2>
+          <div class="chips" style="margin-top:14px;">
+            <span class="chip">C</span>
+            <span class="chip">C++</span>
+            <span class="chip">C#</span>
+            <span class="chip">Python</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML + CSS</span>
+            <span class="chip">Git/GitHub</span>
+            <span class="chip">OpenCV</span>
+            <span class="chip">MediaPipe</span>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </header>
 
-  </div>
-</header>
+    <!-- EXPERIENCE / INTERNSHIP -->
+    <section id="experience">
+      <h2>
+        Industry Experience 
+        <span class="subtle-label">Hands-on systems + automation work</span>
+      </h2>
 
+      <div class="grid">
+
+        <!-- Internship Card -->
+        <article class="card">
+          <!-- If you have a safe, non-confidential photo of your setup, you can drop it here: -->
+          <img class="thumb" src="Assets/internship_setup_placeholder.jpg" alt="Prototyping / calibration setup" />
+
+          <div class="card-body">
+            <h3>Systems Engineering Intern</h3>
+
+            <div class="meta">
+              <div><strong>Company:</strong> [Company Name or "Confidential robotics startup"]</div>
+              <div><strong>Timeline:</strong> May 2024 – Aug 2024</div>
+              <div><strong>Focus:</strong> Motion systems, calibration, reliability testing</div>
+            </div>
+
+            <ul>
+              <li>Configured and calibrated automated motion systems: endpoint calibration, motor parameter tuning, and system bring-up for production hardware.</li>
+              <li>Ran temperature + load studies on motors and gearboxes to evaluate performance and reliability under required duty cycles.</li>
+              <li>Prototyped a vision-based auto-calibration workflow to replace proximity-sensor-based alignment and reduce mm-level stack misalignment that caused jams during tray pick/place.</li>
+            </ul>
+
+            <p class="meta">
+              Result: Improved positional consistency in stacking / retrieval and helped reduce collision and jamming risk in multi-stack storage modules.
+            </p>
+          </div>
+
+          <div class="spacer"></div>
+          <div class="actions">
+            <!-- You can point these wherever you want later -->
+            <a class="btn primary" href="#" target="_blank" rel="noopener">Full write-up</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Gallery</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Feedback</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
 
     <!-- LANGUAGES -->
     <section id="languages" class="panel">
@@ -198,7 +308,8 @@
 
     <!-- PROJECTS -->
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Projects <span class="subtle-label">Academic & personal builds</span></h2>
+
       <div class="grid">
         <!-- Project 1 -->
         <article class="card">
@@ -215,15 +326,13 @@
           </div>
         </article>
 
-
-
         <!-- Project 3 -->
         <article class="card">
-          <img class="thumb" src="Pattern Recognition and Computer Vision/Content Based Image Retrival/Thumbnail - Content Based Image Retrival.JPG" alt="Content Based Image Retrival" />
+          <img class="thumb" src="Pattern Recognition and Computer Vision/Content Based Image Retrival/Thumbnail - Content Based Image Retrival.JPG" alt="Content Based Image Retrieval" />
           <div class="card-body">
-            <h3>Content Based Image Retrival</h3>
+            <h3>Content Based Image Retrieval</h3>
             <div class="meta">Tech: Python, MediaPipe, OpenCV</div>
-            <p>Content Based Image retrival using classical computer vision</p>
+            <p>Classical computer vision pipeline for CBIR: extracting visual features and retrieving visually similar samples without deep learning.</p>
           </div>
           <div class="spacer"></div>
           <div class="actions">
@@ -239,29 +348,28 @@
             <h3>Robot Navigation with Reinforcement Learning</h3>
             <div class="meta">Tech: Python, RL (PPO / SAC), Isaac Sim, ROS2-ready</div>
             <p>
-              Differential drive robot learns to navigate with PPO and SAC. Supports continuous & discrete action spaces,
+              Differential drive robot learns to navigate with PPO and SAC. Supports continuous &amp; discrete action spaces,
               parallel training, TensorBoard analysis, and transfer to Isaac Sim.
             </p>
           </div>
           <div class="spacer"></div>
           <div class="actions">
             <a class="btn primary"
-               href="https://github.com/TinyAstroPsyco/tinyastropsyco.github.io/tree/main/Reinforcement%20Learning/IsaacRL_Maze-main"
-               target="_blank" rel="noopener">More</a>
+              href="https://github.com/TinyAstroPsyco/tinyastropsyco.github.io/tree/main/Reinforcement%20Learning/IsaacRL_Maze-main"
+              target="_blank" rel="noopener">More</a>
             <a class="btn"
-               href="https://github.com/TinyAstroPsyco/tinyastropsyco.github.io/blob/main/Reinforcement%20Learning/IsaacRL_Maze-main/src/control/scripts"
-               target="_blank" rel="noopener">Code</a>
+              href="https://github.com/TinyAstroPsyco/tinyastropsyco.github.io/blob/main/Reinforcement%20Learning/IsaacRL_Maze-main/src/control/scripts"
+              target="_blank" rel="noopener">Code</a>
           </div>
         </article>
-       
 
         <!-- Project 5 -->
         <article class="card">
           <img class="thumb" src="Mechanical Engineering/BAJA/Baja 2020.jpg" alt="Built an offroading car for the BAJA 2020 competion." />
           <div class="card-body">
             <h3>BAJA-SAE Student Car</h3>
-            <div class="meta">Tech: JavaScript, Xcode, Git</div>
-            <p>Built an offroad buggy for the BAJA 2020 competion and bagged the 1st price in the state category.</p>
+            <div class="meta">Tech: Vehicle Design, Manufacturing, Team Build</div>
+            <p>Built an offroad buggy for the BAJA 2020 competition and placed 1st in state category.</p>
           </div>
           <div class="spacer"></div>
           <div class="actions">
