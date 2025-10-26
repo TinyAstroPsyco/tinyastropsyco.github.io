@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Systems Engineering Internship — What I Did</title>
+  <meta name="description" content="Breakdown of my Systems Engineering Internship work using the STAR method." />
+  <style>
+    :root {
+      --bg: #0f1220;
+      --panel: #171a2b;
+      --ink: #e6e8ff;
+      --muted: #a7abcf;
+      --accent: #7c8cff;
+      --accent-2: #48d3ff;
+      --card: #1e2238;
+      --ring: rgba(124,140,255,.35);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(124,140,255,.15), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(72,211,255,.12), transparent 55%),
+                  var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header.page-head {
+      margin-top: 40px;
+      margin-bottom: 32px;
+    }
+
+    header.page-head h1 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 2vw, 32px);
+      color: var(--ink);
+      letter-spacing: 0.2px;
+    }
+
+    header.page-head .meta-line {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* back link */
+    .back-link {
+      display: inline-block;
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: var(--accent-2);
+      text-decoration: none;
+      border: 1px solid rgba(124,140,255,.35);
+      border-radius: 8px;
+      padding: 6px 10px;
+      background: rgba(124,140,255,.08);
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Panel for each STAR block */
+    .star-block {
+      background: color-mix(in oklab, var(--panel), black 6%);
+      border: 1px solid rgba(124,140,255,.15);
+      border-radius: var(--radius);
+      padding: 20px 20px 16px;
+      margin-bottom: 28px;
+    }
+
+    .star-block h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .label-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      column-gap: 16px;
+      row-gap: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .text {
+      color: var(--ink);
+    }
+
+    footer {
+      margin: 44px 0 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .label-row {
+        grid-template-columns: 1fr;
+      }
+      .label {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back-link" href="index.html">← Back to portfolio</a>
+
+    <header class="page-head">
+      <h1>Systems Engineering Internship — What I Did</h1>
+      <div class="meta-line">
+        Fulfil Solutions, CA &nbsp;•&nbsp; May 2024 – Aug 2024<br/>
+        Focus areas: Robotic System Engineering, Computer Vision, Reliability Testing
+      </div>
+    </header>
+
+    <!-- STAR BLOCK 1 -->
+    <section class="star-block">
+      <h2>1. System Bring-Up & Calibration</h2>
+      <div class="label-row">
+        <div class="label">Situation</div>
+        <div class="text">
+          The production system needed reliable, repeatable motion on all axes so it could run automated cycles without crashing, drifting, or requiring manual babysitting.
+        </div>
+
+        <div class="label">Task</div>
+        <div class="text">
+          Get the hardware to a “production ready” state by setting motion limits, tuning motors, and verifying positional accuracy.
+        </div>
+
+        <div class="label">Action</div>
+        <div class="text">
+          Calibrated endpoints and soft limits, tuned motor parameters (velocity, accel, current limits), aligned sensors, and helped debug misalignment issues on real hardware. 
+          I also documented the calibration flow so other engineers/techs could repeat it.
+        </div>
+
+        <div class="label">Result</div>
+        <div class="text">
+          The system was able to consistently hit target positions with reduced overshoot and less operator intervention. In other words: it went from “lab state” to “we can actually run this.”
+        </div>
+      </div>
+    </section>
+
+    <!-- STAR BLOCK 2 -->
+    <section class="star-block">
+      <h2>2. Motor & Gearbox Thermal Study</h2>
+      <div class="label-row">
+        <div class="label">Situation</div>
+        <div class="text">
+          Motors and gearboxes had to survive the required duty cycle without overheating or wearing out too fast.
+        </div>
+
+        <div class="label">Task</div>
+        <div class="text">
+          Validate whether the current motor + gearbox setup could safely handle production loads over time.
+        </div>
+
+        <div class="label">Action</div>
+        <div class="text">
+          Instrumented the motors/gearboxes, collected temperature data under different loads and run profiles, and analyzed how fast each assembly heated up versus safe operating limits.
+        </div>
+
+        <div class="label">Result</div>
+        <div class="text">
+          Flagged thermal risk areas early and provided guidance on safe usage ranges. This helped prevent overheating, reduced chances of unplanned downtime, and protected hardware life.
+        </div>
+      </div>
+    </section>
+
+    <!-- STAR BLOCK 3 -->
+    <section class="star-block">
+      <h2>3. Vision-Based Auto-Calibration Prototype</h2>
+      <div class="label-row">
+        <div class="label">Situation</div>
+        <div class="text">
+          The system used proximity sensors to detect a reference tab on tall storage stacks and align to it. But this method only gave mm-level accuracy. Even a few millimeters off caused jams, scraping, and collision when placing trays into the L-shaped slots.
+        </div>
+
+        <div class="label">Task</div>
+        <div class="text">
+          Improve alignment accuracy so the robot could pick and place trays into vertical stacks without mechanical interference.
+        </div>
+
+        <div class="label">Action</div>
+        <div class="text">
+          Prototyped a camera/vision-based auto-calibration flow. Instead of trusting the proximity sensor reading, the system visually localized the tab/feature, computed a more accurate offset, and fed that corrected position back into motion.
+        </div>
+
+        <div class="label">Result</div>
+        <div class="text">
+          Reduced stack misalignment and lowered jam / collision risk during tray insertion and retrieval. This directly increases reliability and uptime of the storage module.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © TinyAstroPsyco • Systems Engineering Internship Breakdown
+    </footer>
+  </div>
+</body>
+</html>
