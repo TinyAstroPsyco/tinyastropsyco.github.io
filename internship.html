@@ -56,7 +56,6 @@
       line-height: 1.4;
     }
 
-    /* back link */
     .back-link {
       display: inline-block;
       font-size: 14px;
@@ -72,7 +71,6 @@
       text-decoration: underline;
     }
 
-    /* Panel for each STAR block */
     .star-block {
       background: color-mix(in oklab, var(--panel), black 6%);
       border: 1px solid rgba(124,140,255,.15);
@@ -85,6 +83,23 @@
       margin: 0 0 12px;
       font-size: 18px;
       color: var(--ink);
+    }
+
+    /* Image gallery above STAR content */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(124,140,255,.2);
+      background: #0b0d18;
     }
 
     .label-row {
@@ -113,6 +128,12 @@
     }
 
     @media (max-width: 600px) {
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
+      .image-gallery img {
+        height: 180px;
+      }
       .label-row {
         grid-template-columns: 1fr;
       }
@@ -138,6 +159,13 @@
     <!-- STAR BLOCK 1 -->
     <section class="star-block">
       <h2>1. System Bring-Up & Calibration</h2>
+      
+      <!-- Image Gallery -->
+      <div class="image-gallery">
+        <img src="Assets/calibration-image-1.jpg" alt="System calibration setup" />
+        <img src="Assets/calibration-image-2.jpg" alt="Motor tuning interface" />
+      </div>
+
       <div class="label-row">
         <div class="label">Situation</div>
         <div class="text">
@@ -146,7 +174,7 @@
 
         <div class="label">Task</div>
         <div class="text">
-          Get the hardware to a “production ready” state by setting motion limits, tuning motors, and verifying positional accuracy.
+          Get the hardware to a "production ready" state by setting motion limits, tuning motors, and verifying positional accuracy.
         </div>
 
         <div class="label">Action</div>
@@ -157,7 +185,7 @@
 
         <div class="label">Result</div>
         <div class="text">
-          The system was able to consistently hit target positions with reduced overshoot and less operator intervention. In other words: it went from “lab state” to “we can actually run this.”
+          The system was able to consistently hit target positions with reduced overshoot and less operator intervention. In other words: it went from "lab state" to "we can actually run this."
         </div>
       </div>
     </section>
@@ -165,6 +193,13 @@
     <!-- STAR BLOCK 2 -->
     <section class="star-block">
       <h2>2. Motor & Gearbox Thermal Study</h2>
+      
+      <!-- Image Gallery -->
+      <div class="image-gallery">
+        <img src="Assets/thermal-image-1.jpg" alt="Thermal testing setup" />
+        <img src="Assets/thermal-image-2.jpg" alt="Temperature data analysis" />
+      </div>
+
       <div class="label-row">
         <div class="label">Situation</div>
         <div class="text">
@@ -191,6 +226,13 @@
     <!-- STAR BLOCK 3 -->
     <section class="star-block">
       <h2>3. Vision-Based Auto-Calibration Prototype</h2>
+      
+      <!-- Image Gallery -->
+      <div class="image-gallery">
+        <img src="Assets/vision-image-1.jpg" alt="Vision system setup" />
+        <img src="Assets/vision-image-2.jpg" alt="Auto-calibration result" />
+      </div>
+
       <div class="label-row">
         <div class="label">Situation</div>
         <div class="text">
