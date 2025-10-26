@@ -120,28 +120,24 @@
       min-height: 100%;
     }
 
-    /* For "experience" cards we may not always have a big image.
-       We'll support both with and without .thumb */
+    /* Image style */
     .thumb {
       background: #0b0d18;
       display: block;
       width: 100%;
       object-fit: cover;
       border-bottom: 2px solid rgba(124,140,255,.15);
-      /* You can uncomment if you want fixed aspect crop
-      aspect-ratio: 16/9;
-      */
     }
 
+    /* smaller version for internship logo/photo */
     .small-thumb {
-      width: 80%;          /* or 70% */
+      width: 80%;
       max-height: 180px;
       display: block;
-      margin: 0 auto 12px; /* centers it */
+      margin: 0 auto 12px; /* center it + add bottom space */
       border-radius: 8px;
       object-fit: cover;
     }
-
 
     .card-body { padding: 16px; }
     .card h3 { margin: 0 0 6px; font-size: 18px; }
@@ -252,28 +248,25 @@
       </div>
     </header>
 
-
-
-
     <!-- EXPERIENCE / INTERNSHIP -->
     <section id="experience">
       <h2>
         Industry Experience 
-        <span class="thumb small-thumb">Hands-on systems + automation work</span>
+        <span class="subtle-label">Hands-on systems + automation work</span>
       </h2>
 
       <div class="grid">
 
         <!-- Internship Card -->
         <article class="card">
-          <!-- If you have a safe, non-confidential photo of your setup, you can drop it here: -->
-          <img class="thumb" src="Assets/fulfil_automation_logo.jpeg" />
+          <!-- scaled-down image -->
+          <img class="thumb small-thumb" src="Assets/fulfil_automation_logo.jpeg" alt="Prototyping / calibration setup" />
 
           <div class="card-body">
             <h3>Systems Engineering Intern</h3>
 
             <div class="meta">
-              <div><strong>Company:</strong>Fulfil Solution, CA</div>
+              <div><strong>Company:</strong> Fulfil Solutions, CA</div>
               <div><strong>Timeline:</strong> May 2024 – Aug 2024</div>
               <div><strong>Focus:</strong> Robotic System Engineering, Computer Vision</div>
             </div>
@@ -291,7 +284,6 @@
 
           <div class="spacer"></div>
           <div class="actions">
-            <!-- You can point these wherever you want later -->
             <a class="btn primary" href="#" target="_blank" rel="noopener">Full write-up</a>
             <a class="btn" href="#" target="_blank" rel="noopener">Gallery</a>
             <a class="btn" href="#" target="_blank" rel="noopener">Feedback</a>
@@ -300,7 +292,6 @@
 
       </div>
     </section>
-
 
     <!-- PROJECTS -->
     <section id="projects">
